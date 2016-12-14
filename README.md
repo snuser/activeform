@@ -1,5 +1,5 @@
 # activeform
-activeform 是一个基于vue框架的form组合工具,结构分为两个部分组装(meta builder)和组件(formwidget),
+activeform 是一个基于vue框架的form组合工具,结构分为两个部分组装(meta builder)和组件(formwidget)
 meta由metaprovider提供components的配置字段fields和布局字段layout.  activeform提供api(getData setData validate).
 
 
@@ -21,7 +21,7 @@ webpack --config build/webpack.config.js
 ```
 
 ###组件配置
-*fields*
+#### fields
 - 定义activeform的控件的meta信息
 - field widget 字段名称和要使用的组件名称
 - meta 组件要使用的meta信息(根据组件定义各不相同)
@@ -46,7 +46,7 @@ webpack --config build/webpack.config.js
       }
 },
 ```
-*layout*
+#### layout
 - layout组件为布局组件包括(row col)
 - row 组件为行组件(根据bootstrap栅格分类为一行为12栅格)
 - col 组件为列组件(提供grip参数 来对应row的栅格数)
@@ -61,7 +61,7 @@ webpack --config build/webpack.config.js
 ```
 _如果row里面grid相加大于12会排到下一行_
 
-*formwidget*
+#### formwidget
 - label 提供label标签
 ```
 <widget-label label="label"></widget-label>
@@ -71,8 +71,12 @@ _如果row里面grid相加大于12会排到下一行_
 ```
  <widget-text :params="name" ref="name"></widget-text>
 ```
-- 配置
-```
-@todo 参数
-```
+##### 配置
+
+| 字段meta       | 说明           |
+| ------------- |:-------------:|
+| placeholder   | placeholder   |
+| default       | 默认值         |
+
+
 
