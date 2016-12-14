@@ -36,10 +36,6 @@
         },0);
       },
       validators : Object.assign(validators,{
-        vueValidator : function(val,meta={}){
-          if(meta.disable === true)return true;
-          return false
-        }
       })
   }
 

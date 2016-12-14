@@ -43,6 +43,12 @@
       tools : function () {
         if (gomeplus.isUndefined(this.meta.tools))return false
         return this.meta.tools
+      },
+      all : function(){
+        return this.options.map(function (item) {return item.value});
+      },
+      value:function(){
+        return this._compileExpression(this.meta.default)
       }
     }),
     methods : Object.assign(methods, {
@@ -64,8 +70,16 @@
       },
       _calcValues : function (index) {
         let expression = this.tools[index].expression
+        return this._compileExpression(expression)
+      },
+      _compileExpression:function(expression){
+        let all = this.all
+        if(gomeplus.isArray(expression)){
+          expression = Array.from(new Set(expression))
+          return Array.from(expression,function(n){return all.includes(n) ? n : false}).filter(function(n){return n!==false})
+        }
         if (expression === EXPRESSION.ALL) {
-          return this.options.map(function (item) {return item.value})
+          return all
         }
         return expression.split(',').map(function (item) {return parseInt(item)})
       },

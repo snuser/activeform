@@ -41,14 +41,14 @@ export default {
       meta:{
         tools:[
           {name:"全选",expression:"all"},
-          {name:"我的爱好",expression:"2,3"}
+          {name:"我的爱好",expression:[2,3]}
         ],
         options:[
           {label:"足球",value:1},
           {label:"篮球",value:2},
           {label:"羽毛球",value:3}
         ],
-        default:[1,2]
+        default: 'all'
 
       }
     }
