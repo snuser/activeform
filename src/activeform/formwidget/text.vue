@@ -11,31 +11,31 @@
   import Common from './common/index.js'
    const  {props,computed,methods,data,validators} = Common()
     export default {
-      props : gomeplus.mix(props,{}),
+      props : Object.assign(props,{}),
       data : function(){
           let defaultData = data()
-          return gomeplus.mix(defaultData,{
+          return Object.assign(defaultData,{
 
           })
       },
-      computed:gomeplus.mix(computed,{
+      computed:Object.assign(computed,{
         placeholder:function(){
           return this.meta.placeholder
         }
       }),
-      methods : gomeplus.mix(methods,{
+      methods : Object.assign(methods,{
         validateHandler:function(e){
           this.validate.bind(this).call()
         }
       }),
       mounted:function(){
-        this.$options.validators = gomeplus.mix(this.$options.validators, this.validatorMethods);
+        this.$options.validators = Object.assign(this.$options.validators, this.validatorMethods);
         var self = this;
         setTimeout(function(){
           self.setData(self.value);
         },0);
       },
-      validators : gomeplus.mix(validators,{
+      validators : Object.assign(validators,{
         vueValidator : function(val,meta={}){
           if(meta.disable === true)return true;
           return false

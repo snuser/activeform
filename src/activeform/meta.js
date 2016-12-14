@@ -10,7 +10,6 @@ class meta {
     let self = this;
     fields.map((item)=>{
       this._fields.set(item.field, item)
-      //self._fields.add(item)
     })
   }
 

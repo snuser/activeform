@@ -5,20 +5,20 @@ import Observable from 'Observable'
 class builder{
   constructor(metaClient,options){
     this._vm = null
-    this.vmOptions = options
+    this._options = options
     this.metaClient = metaClient
   }
   _initVm(){
     let options = {};
     options.name = builder.Name
-    options.el = this.vmOptions.el
-    options.data = this._optionsData()
+    options.el = this._options.el
+    options.data = this._fieldsData()
     options.components = components
     options.template = this.metaClient.getLayout()
     this._vm = new Vue(options);
     this.trigger('init_vm',this._vm);
   }
-  _optionsData(){
+  _fieldsData(){
       return this.metaClient.getFields.bind(this.metaClient)
   }
   form(){
@@ -26,6 +26,5 @@ class builder{
   }
 }
 builder.Name = 'activeForm'
-
-gomeplus.mix(builder.prototype, Observable)
+Object.assign(builder.prototype, Observable)
 export  default builder

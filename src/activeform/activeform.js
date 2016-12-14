@@ -6,9 +6,12 @@ class activeform {
   constructor (options,metaProvider) {
     this._widgets = new Map()
     this._vm = null
+    this._options = options
     this.errors = new Map();
     this.meta = new meta(metaProvider.getData());
-    this.builder = new builder(this.meta,options);
+    this.builder = new builder(this.meta,{
+      el: this._options.el
+    });
     this.builder.bind('init_vm',this.setWidgetsHandler.bind(this))
   }
 
@@ -17,10 +20,7 @@ class activeform {
   }
   setWidgetsHandler(event, vm){
     this._vm = vm
-    let $refs = vm.$refs
-    for(var name in $refs){
-      this._widgets.set(name, $refs[name]);
-    }
+    this._widgets = new Map(Object.entries(vm.$refs));
   }
   getData () {
     let data = {}
@@ -57,5 +57,5 @@ class activeform {
     return this.getErrors().size > 0
   }
 }
-gomeplus.mix(activeform.prototype,Observable)
+Object.assign(activeform.prototype,Observable)
 export  default activeform

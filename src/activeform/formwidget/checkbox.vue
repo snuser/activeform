@@ -24,18 +24,18 @@
     props,
     data : function () {
       let defaultData = data()
-      return gomeplus.mix(defaultData, {
+      return Object.assign(defaultData, {
         activeTool: null
       })
     },
     mounted : function () {
-      this.$options.validators = gomeplus.mix(this.$options.validators, this.validatorMethods);
+      this.$options.validators = Object.assign(this.$options.validators, this.validatorMethods);
       let self = this;
       setTimeout(function () {
         self.setData(self.value);
       }, 0);
     },
-    computed : gomeplus.mix(computed, {
+    computed : Object.assign(computed, {
       options : function () {
         if (gomeplus.isUndefined(this.meta.options))return []
         return this.meta.options;
@@ -45,7 +45,7 @@
         return this.meta.tools
       }
     }),
-    methods : gomeplus.mix(methods, {
+    methods : Object.assign(methods, {
       checkedHandler : function (e) {
         let checked = e.target.checked,
           value = parseInt(e.target.value)
