@@ -1,7 +1,7 @@
 'use strict'
+import Vue from 'vue'
 import components  from './formwidget/index.js'
 import Observable from 'Observable'
-import Vue from 'vue'
 class builder{
   constructor(metaClient,options){
     this._vm = null

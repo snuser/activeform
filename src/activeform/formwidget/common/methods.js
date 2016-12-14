@@ -4,7 +4,7 @@ export default function () {
     var self = this
     // refer validity instance from $refs
     var $validity = this.$refs[this.name]
-    if($validity === undefined || $validity[validate] === undefined)return;
+    if($validity === undefined)return;
     $validity.validate(this.data,function(){
       let error =  this.result.invalid
       self.error = error

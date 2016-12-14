@@ -1,58 +1,70 @@
 'use strict'
 import activeform from 'activeform'
 class  App {
-    static init (el){
-        let activeFrom = new activeform({
-            'el':el,
-        },App.metaProvider)
-        activeFrom.render()
-    }
+  static init (el){
+    let activeFrom = new activeform({
+      'el':el,
+    },App.metaProvider)
+    activeFrom.render()
+  }
 }
 App.metaData = {
-    fields:[
-        {
-            field: 'name',
-            widget: 'text',
-            meta: {
-                placeholder: '请输入名称',
-                default: ''
-            }
+  fields:[
+    {
+      field: 'name',
+      widget: 'text',
+      meta: {
+        placeholder: '请输入名称',
+        default: ''
+      },
+      validators: {
+        options: {
+          numeric:{message:"必需为数字"},
+          commonValidator:{rule:{disable:false},message:"commonValidator"},
+          vueValidator:{rule:{disable:true},message:"vueValidator"}
         },
-        {
-            field:'age',
-            widget:"text",
-            meta:{
-                placeholder:"请输入年龄",
-                default:'1'
-            }
-        },
-        {
-            field:'addr',
-            widget:"text",
-            meta:{
-                placeholder:"请输入地址",
-                default:'北京市'
-            }
-        },
-        {
-            field:'hobby',
-            widet:'checkbox',
-            meta:{
-                tools:[
-                    {name:"全选",expression:"all"},
-                    {name:"我的爱好",expression:"2,3"}
-                ],
-                options:[
-                    {label:"足球",value:1},
-                    {label:"篮球",value:2},
-                    {label:"羽毛球",value:3}
-                ],
-                default:[1,2]
-
-            }
+        methods: {
+          numeric: function (val) {
+            return /^[-+]?[0-9]+$/.test(val);
+          }
         }
-    ],
-    layout:`
+      }
+    },
+    {
+      field:'age',
+      widget:"text",
+      meta:{
+        placeholder:"请输入年龄",
+        default:'1'
+      }
+    },
+    {
+      field:'addr',
+      widget:"text",
+      meta:{
+        placeholder:"请输入地址",
+        default:'北京市'
+      }
+    },
+    {
+      field:'hobby',
+      widet:'checkbox',
+      meta:{
+        tools:[
+          {name:"全选",expression:"all"},
+          {name:"我的爱好",expression:"2,3"}
+        ],
+        options:[
+          {label:"足球",value:1},
+          {label:"篮球",value:2},
+          {label:"羽毛球",value:3}
+        ],
+        default:[1,2]
+
+      }
+    }
+  ],
+  layout:`
      <layout>
       <layout-row>
         <layout-col :grid="6">
@@ -80,9 +92,9 @@ App.metaData = {
   `
 }
 App.metaProvider = {
-    getData(){
-        return App.metaData
-    }
+  getData(){
+    return App.metaData
+  }
 }
 
 window.App = App
