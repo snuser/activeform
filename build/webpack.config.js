@@ -62,5 +62,4 @@ var options =  {
   }
 
 }
-console.log(options);
 module.exports = options
