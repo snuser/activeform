@@ -1,5 +1,5 @@
 # activeform
-activeform 是一个基于vue框架的form组合工具,结构分为两个部分组装(meta builder)和组件(formwidget)<br/>
+activeform 是一个基于vue框架的form组合工具,结构分为两个部分组成(meta builder)和组件(formwidget)<br/>
 meta由metaprovider提供components的配置字段fields和布局字段layout.  activeform提供api(getData setData validate).<br/>
 
 
