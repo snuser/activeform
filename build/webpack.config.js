@@ -4,7 +4,7 @@ var webpack = require('webpack'),
     fs = require('fs'),
     CommonsChunkPlugin = require('./common_chunk.js'),
     projectRoot = path.resolve(__dirname,'../'),
-    jsProjectRoot = path.resolve(projectRoot,'src'),
+    jsProjectRoot = path.resolve(projectRoot,'./src'),
     gomeplusRoot = path.resolve(jsProjectRoot,'gomeplus'),
     entrys = function(root){
       var models =  fs.readdirSync(root);
@@ -23,7 +23,7 @@ for(let plugin in CommonsChunkPlugin){
 var options =  {
   devtool:  '#source-map',
   plugins:plugins,
-  entry: entrys(path.join(projectRoot,'/example')),
+  entry: entrys(path.resolve(projectRoot,'example')),
   output:{
     path: path.resolve(projectRoot,'dist/static'),
     filename:'[name].js'
@@ -52,9 +52,9 @@ var options =  {
     alias:{
         'vue$': 'vue/dist/vue.common.js',
         'gomeplus':path.resolve(gomeplusRoot,'gomeplus'),
-        'activeform':path.resolve(jsProjectRoot,'activeform/index.js'),
       'Collection':path.resolve(gomeplusRoot,'util/Collection'),
-      'Observable':path.resolve(gomeplusRoot,'mixin/Observable')
+      'Observable':path.resolve(gomeplusRoot,'mixin/Observable'),
+      'activeform' : path.resolve(jsProjectRoot,'activeform')
     }
   },
   externals : {

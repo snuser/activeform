@@ -22,8 +22,8 @@ let manifest =   new webpack.optimize.CommonsChunkPlugin({
   chunks: ['vendor']
 })
 module.exports= {
-  // vendor,
-  // manifest,
+  vendor,
+  manifest,
 }
 
 
