@@ -6,19 +6,19 @@ meta由metaprovider提供components的配置字段fields和布局字段layout.  
 
 
 ###依赖
-```
-node
-npm
-```
+    ```
+    node
+    npm
+    ```
 
 ###安装
 
-```
-git clone https://github.com/snuser/activeform
-cd activeform
-npm install -d
-webpack --config build/webpack.config.js
-```
+    ```
+    git clone https://github.com/snuser/activeform
+    cd activeform
+    npm install -d
+    webpack --config build/webpack.config.js
+    ```
 
 ###组件配置
 #### fields
@@ -66,17 +66,38 @@ _如果row里面grid相加大于12会排到下一行_
 ```
 <widget-label label="label"></widget-label>
 ```
-- text组件 提供text输入功能
-- params 参数内容为fields字段中定义的field  如:fields.name={...props}
+
+##### text组件 提供text输入功能
+- 事例
 ```
- <widget-text :params="name" ref="name"></widget-text>
+ <widget-text :params="fieldName" ref="fieldName"></widget-text>
 ```
-##### 配置
+- 配置
+    ---------------------------------
+    | meta          | 说明           |
+    | ------------- |:-------------:|
+    | placeholder   | placeholder   |
+    | default       | 默认值         |
 
-| 字段meta       | 说明           |
-| ------------- |:-------------:|
-| placeholder   | placeholder   |
-| default       | 默认值         |
+##### checkbox
 
+- 事例
 
+    ```
+    <widget-checkbox :params="fieldName" ref="filedName"></widget-checkbox>
+    ```
 
+- 配置
+
+    | meta | 说明 |
+    |---|:----|
+    | options  | array | 配置checkbox默认值 [ {label:"足球",value:1}, {label:"篮球",value:2}, {label:"羽毛球",value:3} ]    |  
+    | tools    | array | 配置辅助工具的名称和值 [ {name:"全选",expression:"all"}, {name:"我的爱好",expression:[2,3]} ] |
+    | default  | array or string| 默认值|
+    其中关于 tools.expression和default的值
+    ```
+        expression | array or string 
+        expression = 'all'
+        expression = [1,2,3]
+        expression = '1,2,3'
+    ```
