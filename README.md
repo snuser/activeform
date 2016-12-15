@@ -94,7 +94,7 @@ _如果row里面grid相加大于12会排到下一行_
     |---|:----|:----|
     | options  | array | checkbox默认值 [ {label:"足球",value:1}, {label:"篮球",value:2}, {label:"羽毛球",value:3} ]    |  
     | tools    | array | toolsNav 的值 [ {name:"全选",expression:"all"}, {name:"我的爱好",expression:[2,3]} ] |
-    | default  | array or string| 默认值|
+    | default  | array or string| 默认值 [1,2,3] or 'all' or '1,2,3'|
     其中关于 tools.expression和default的值
     ```
     expression | array or string 
@@ -102,3 +102,4 @@ _如果row里面grid相加大于12会排到下一行_
     expression = [1,2,3]
     expression = '1,2,3'
     ```
+    
