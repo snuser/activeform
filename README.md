@@ -73,11 +73,12 @@ _如果row里面grid相加大于12会排到下一行_
  <widget-text :params="fieldName" ref="fieldName"></widget-text>
 ```
 - 配置
-    ---------------------------------
-    | meta          | 说明           |
-    | ------------- |:-------------:|
-    | placeholder   | placeholder   |
-    | default       | 默认值         |
+
+    | meta|类型  |说明
+    |---|:----|:----|
+    | placeholder  | string | placeholder|
+    |default | string |    默认值|
+
 
 ##### checkbox
 
@@ -89,8 +90,8 @@ _如果row里面grid相加大于12会排到下一行_
 
 - 配置
 
-    | meta | 说明 |
-    |---|:----|
+    | meta | 类型 |事例|
+    |---|:----|:----|
     | options  | array | 配置checkbox默认值 [ {label:"足球",value:1}, {label:"篮球",value:2}, {label:"羽毛球",value:3} ]    |  
     | tools    | array | 配置辅助工具的名称和值 [ {name:"全选",expression:"all"}, {name:"我的爱好",expression:[2,3]} ] |
     | default  | array or string| 默认值|
