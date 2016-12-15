@@ -49,7 +49,7 @@ webpack --config build/webpack.config.js
 #### layout
 - layout组件为布局组件包括(row col)
 - row 组件为行组件(根据bootstrap栅格分类为一行为12栅格)
-- col 组件为列组件(提供grip参数 来对应row的栅格数)
+- col 组件为列组件(提供grid参数 来对应row的栅格数)
 ```
 <widget-row>
 <widget-col :grid="6"/>
