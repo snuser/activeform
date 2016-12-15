@@ -97,8 +97,8 @@ _如果row里面grid相加大于12会排到下一行_
     | default  | array or string| 默认值|
     其中关于 tools.expression和default的值
     ```
-        expression | array or string 
-        expression = 'all'
-        expression = [1,2,3]
-        expression = '1,2,3'
+    expression | array or string 
+    expression = 'all'
+    expression = [1,2,3]
+    expression = '1,2,3'
     ```
